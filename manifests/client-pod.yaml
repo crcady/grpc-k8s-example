@@ -1,0 +1,11 @@
+apiVersion: v1
+kind: Pod
+metadata:
+  name: grpc-client
+spec:
+  containers:
+  - command: ["/bin/sh"]
+    args: ["-c", "./greeter_client --target=$GREETER_SERVICE_HOST:$GREETER_SERVICE_PORT"]
+    image: crcady/grpc_example
+    name: grpc-client
+  restartPolicy: Never
